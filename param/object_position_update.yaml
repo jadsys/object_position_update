@@ -1,0 +1,32 @@
+# cnoidプロジェクトファイルのディレクトリ
+cnoid_project_file_dir: /home/ros/catkin_ws/src/cnoid_rover_pkgs/cnoid_rover_bringup/project
+
+# 入力のcnoidプロジェクトファイル名
+input_cnoid_project_file_name: /MegaRover_lictia1F_slam_aist.cnoid
+
+# 出力のcnoidプロジェクトファイル名
+output_cnoid_project_file_name: /MegaRover_lictia1F_slam_aist.cnoid
+
+# cnoidファイルの上書き設定(true:上書きする、false:上書きしない)
+output_file_overwrite: false
+
+# RDRから取得した準静的物体の位置変化情報受信トピック名
+sub_obj_loc_topic_name: /megarover_01_sim/simulator_bridge/object_location
+
+# RDRから準静的物体の位置変化情報を取得するためのリクエスト配信トピック名
+pub_get_obj_loc_topic_name: /megarover_01_sim/simulator_bridge/get_object_location
+
+# 更新対象の設定情報
+update_item_list:
+  - 
+    name: Table                   # RDRから送られてくるアイテム名
+    update_object: Table-120x120  # choreonoid側の更新対象のオブジェクト名
+    top_layer: FreeSpace          # オブジェクトが格納されてる一つ上のレイヤ名
+    body_file: ${SHARE}/LICTiA/model/Table-120x120.body # 対象アイテムの.bodyファイル格納場所
+    offset_z: 0.72                # 位置情報書き換えの際の高さ方向のオフセット
+  - 
+    name: Chair
+    update_object: Office_chair
+    top_layer: FreeSpace
+    body_file: ${SHARE}/LICTiA/model/Office_chair.body
+    offset_z: 0.45

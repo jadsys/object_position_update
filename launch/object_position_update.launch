@@ -1,0 +1,10 @@
+<launch>
+  <arg name="ENTITY_ID" default="megarover_01_sim" />
+
+  <group ns="$(arg ENTITY_ID)">
+    <node pkg="object_position_update" type="object_position_update.py" name="object_position_update" output="screen" >
+      <rosparam file="$(find object_position_update)/param/object_position_update.yaml" command="load" />
+    </node>
+  </group>
+
+</launch>
